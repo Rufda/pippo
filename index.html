@@ -59,19 +59,19 @@
       jumping = true;
       let up = 0;
       const jumpInterval = setInterval(() => {
-        if (up >= 80) {
+        if (up >= 60) {  // ridotto limite di salto
           clearInterval(jumpInterval);
           const downInterval = setInterval(() => {
             if (up <= 0) {
               clearInterval(downInterval);
               jumping = false;
             } else {
-              up -= 5;
+              up -= 4;  // caduta più lenta
               dino.style.bottom = up + 'px';
             }
           }, 10);
         } else {
-          up += 5;
+          up += 4;  // salto leggermente più lento
           dino.style.bottom = up + 'px';
         }
       }, 10);
@@ -94,7 +94,7 @@
           clearInterval(moveInterval);
           return;
         }
-        cactusLeft -= 5;
+        cactusLeft -= 3;  // cactus rallentato
         cactus.style.left = cactusLeft + 'px';
         if (cactusLeft < -20) {
           cactusLeft = 600 + Math.random() * 200;
